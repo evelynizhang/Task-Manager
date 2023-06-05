@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from projects.models import Project
 
 # Create your views here.
@@ -8,3 +8,7 @@ def all_projects(request):
     projects = Project.objects.all()
     context = {"all_projects": projects}
     return render(request, "projects/projects.html", context)
+
+
+def redirect_home(request):
+    return redirect("list_projects")
