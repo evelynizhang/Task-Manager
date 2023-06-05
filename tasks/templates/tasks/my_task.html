@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>My Tasks</h1>
+        {% if my_task.count == 0 %}
+          <p>You have no tasks</p>
+        {% else %}
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Start date</th>
+                <th>Due date</th>
+                <th>Is completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for each in my_task %}
+                <tr>
+                  <td>{{ each.name }}</td>
+                  <td>{{ each.start_date }}</td>
+                  <td>{{ each.due_date }}</td>
+                  <td>{{ each.is_completed|yesno }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>
