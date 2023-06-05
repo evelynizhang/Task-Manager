@@ -12,6 +12,9 @@
         <h1>{{ single_project.name }}</h1>
         <p>{{ single_project.description }}</p>
         <h2>Tasks</h2>
+        <p>
+          <a href="{% url "create_task" %}">Create a new task</a>
+        </p>
         {% if single_project.tasks.count != 0 %}
           <table>
             <thead>
