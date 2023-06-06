@@ -2,7 +2,7 @@
 
 {% block content %}
   <main>
-    <div>
+    <div class="project-list">
       <h1>My Projects</h1>
       <p>
         <a href="{% url "create_project" %}">Create a new project</a>
@@ -14,16 +14,18 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Number of tasks</th>
+              <th>Total number of tasks</th>
+              <th>Incompleted number of tasks</th>
             </tr>
           </thead>
           <tbody>
-            {% for each in all_projects %}
+            {% for each in all_projects.all %}
               <tr>
                 <td>
                   <a href="{% url "show_project" each.id %}">{{ each.name }}</a>
                 </td>
                 <td>{{ each.tasks.all|length }}</td>
+                <td>{{ each.tasks.incompleted_tasks }}</td>
               </tr>
             {% endfor %}
           </tbody>

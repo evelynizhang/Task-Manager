@@ -19,3 +19,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
+
+    def incompleted_tasks(self):
+        self.number = Task.objects.filter(is_completed="False")
+        return self.number

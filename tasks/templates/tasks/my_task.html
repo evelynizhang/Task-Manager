@@ -2,26 +2,33 @@
 
 {% block content %}
   <main>
-    <div>
+    <div class="my-tasks-list">
       <h1>My Tasks</h1>
+      <p>
+        <a href="{% url "create_task" %}">Create a new task</a>
+      </p>
       {% if my_task.count == 0 %}
         <p>You have no tasks</p>
       {% else %}
         <table>
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Project Name</th>
+              <th>Task Name</th>
               <th>Start date</th>
               <th>Due date</th>
               <th>Is completed</th>
             </tr>
           </thead>
           <tbody>
-            {% for each in my_task %}
+            {% for each in my_task.all %}
               <tr>
-                <td>{{ each.name }}</td>
-                <td>{{ each.start_date }}</td>
-                <td>{{ each.due_date }}</td>
+                <td>{{ each.project }}</td>
+                <td>
+                  <a href="{% url "view_each_task" each.id %}">{{ each.name }}</a>
+                </td>
+                <td>{{ each.start_date|date:"m/d/y P" }}</td>
+                <td>{{ each.due_date|date:"m/d/y P" }}</td>
                 <td>{{ each.is_completed|yesno }}</td>
               </tr>
             {% endfor %}
