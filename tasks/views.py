@@ -44,10 +44,11 @@ def edit_my_task(request, id):
 
 def delete_my_task(request, id):
     model_instance = Task.objects.get(id=id)
+    context = {"task": model_instance}
     if request.method == "POST":
         model_instance.delete()
         return redirect("show_my_tasks")
-    return render(request, "tasks/delete.html")
+    return render(request, "tasks/delete.html", context)
 
 
 def view_each_task(request, id):

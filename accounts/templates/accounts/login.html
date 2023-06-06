@@ -1,14 +1,32 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block title %}
+  Welcome
+{% endblock title %}
 {% block content %}
-  <main>
-    <div class="login-form">
-      <h1>Login</h1>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-      </form>
+  <main class="login">
+    <h1>Task Manager</h1>
+    <div class="welcome-page">
+      <div class="left">
+        <h2 class="welcome">
+          Welcome,
+          come on in!
+        </h2>
+        <div class="login-form">
+          <h1>Login</h1>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+      <img src="{% static 'css/images/welcome.jpeg' %}"
+           alt="check list"
+           width="500"
+           height="400">
     </div>
   </main>
 {% endblock content %}

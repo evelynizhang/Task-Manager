@@ -12,12 +12,13 @@ select {
   font-size: 16px;
   margin: 0;
   padding: 0;
+
 }
 
 /* Set the background color of all pages */
 html,
 body {
-  background-color: #F2F2F2;
+  background-image: url('{% static "css/images/back.jpeg" %}');
   font-family: Roboto;
 }
 
@@ -83,7 +84,17 @@ table {
 }
 
 /* Make the login and sign-up forms look nicer */
-.login-form,
+.login-form {
+  background-color: white;
+  border-radius: 4px;
+
+  margin: auto;
+  max-width: 400px;
+  padding: 2em;
+  margin-top: 0;
+  margin-left: 300px;
+}
+
 .signup-form {
   background-color: white;
   border-radius: 4px;
@@ -91,6 +102,26 @@ table {
   margin: auto;
   max-width: 400px;
   padding: 2em;
+}
+
+.welcome {
+  margin-top: 50px;
+  margin-left: 350px;
+}
+
+.welcome-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+img {
+  align-content: baseline;
+  padding-top: 0px;
 }
 
 /* Make the task and projects forms look nicer */
@@ -245,4 +276,55 @@ button {
 
 button:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.Delete-button {
+  background-color: rgb(200, 0, 0);
+  color: white;
+  border-radius: 50px;
+  border: none;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: box-shadow 0.15s;
+  vertical-align: top;
+  text-align: center;
+}
+
+.Delete-button:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.delete-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.each_task_page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.space {
+  padding-top: 40px;
+}
+
+
+ul {
+  text-align: center;
+}
+
+footer {
+  padding-bottom: 0;
+  font-family: Roboto;
+  color: #7db1df;
+  position: absolute;
+  bottom: 0;
+  font-size: small;
 }

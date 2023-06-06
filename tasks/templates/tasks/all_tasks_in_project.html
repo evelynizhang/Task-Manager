@@ -4,16 +4,24 @@
   <main>
     <div class="my-tasks-list">
       <h1>My Tasks</h1>
-      <p>
-        <a href="{% url "create_task" %}">Create a new task</a>
-      </p>
       {% if all_tasks_in_project.count == 0 %}
         <p>You have no tasks</p>
+        <p>
+          <a href="{% url "create_task" %}">
+            <button>Create a new task</button>
+          </a>
+        </p>
       {% else %}
+        <p>
+          <a href="{% url "create_task" %}">
+            <button>Create a new task</button>
+          </a>
+        </p>
         <table>
           <thead>
             <tr>
               <th>Task Name</th>
+              <th>Assignee</th>
               <th>Start date</th>
               <th>Due date</th>
               <th>Is completed</th>
@@ -23,8 +31,9 @@
             {% for each in all_tasks_in_project.all %}
               <tr>
                 <td>
-                  <a href="{% url "edit_my_task" each.id %}">{{ each.name }}</a>
+                  <a href="{% url "view_each_task" each.id %}">{{ each.name }}</a>
                 </td>
+                <td>{{ each.assignee }}</td>
                 <td>{{ each.start_date|date:"m/d/y P" }}</td>
                 <td>{{ each.due_date|date:"m/d/y P" }}</td>
                 <td>{{ each.is_completed|yesno }}</td>

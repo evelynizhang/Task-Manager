@@ -13,6 +13,7 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
+    due_date = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name

@@ -9,7 +9,7 @@ from tasks.models import Task
 
 @login_required
 def all_projects(request):
-    projects = Project.objects.filter(owner=request.user)
+    projects = Project.objects.filter(owner=request.user).order_by("due_date")
     for project in projects:
         tasks = Task.objects.filter(is_completed=False, project=project.id)
         project.incompleted_tasks = tasks
@@ -17,10 +17,18 @@ def all_projects(request):
     return render(request, "projects/projects.html", context)
 
 
+@login_required
+def view_every_project(request):
+    if request.user.is_superuser:
+        project = Project.objects.all().order_by("due_date")
+    context = {"every_project": project}
+    return render(request, "projects/every_project.html", context)
+
+
 def all_tasks_in_a_project(request, id):
     projects = Project.objects.filter(owner=request.user)
     for project in projects:
-        tasks = Task.objects.filter(project=id)
+        tasks = Task.objects.filter(id=project.id).order_by("due_date")
     context = {"all_tasks_in_project": tasks}
     return render(request, "tasks/all_tasks_in_project.html", context)
 

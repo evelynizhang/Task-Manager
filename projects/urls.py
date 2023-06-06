@@ -6,6 +6,7 @@ from projects.views import (
     all_tasks_in_a_project,
     all_incompleted_tasks_in_a_project,
     all_completed_tasks_in_a_project,
+    view_every_project,
 )
 
 urlpatterns = [
@@ -26,5 +27,10 @@ urlpatterns = [
         "<int:id>/completed_tasks",
         all_completed_tasks_in_a_project,
         name="all_completed_tasks_in_a_project",
+    ),
+    path(
+        "all",
+        view_every_project,
+        name="view_every_project",
     ),
 ]

@@ -25,15 +25,18 @@
           </tr>
         </tbody>
       </table>
-      <p>
-        <a href="{% url "edit_my_task" each_task.id %}">Edit</a>
-      </p>
-      <p>
-        <a href="{% url "delete_my_task" each_task.id %}">Delete</a>
-      </p>
-      <p>
-        <a href="{% url "show_my_tasks" %}">Back to my tasks</a>
-      </p>
+      <div class="space"></div>
+      <div class="each_task_page">
+        <a href="{% url "edit_my_task" each_task.id %}">
+          <button>Edit</button>
+        </a>
+        <a href="{% url "delete_my_task" each_task.id %}">
+          <button class="Delete-button">Delete</button>
+        </a>
+        <a href="{% url "show_my_tasks" %}">
+          <button>Back to my tasks</button>
+        </a>
+      </div>
     </div>
   </main>
 {% endblock content %}

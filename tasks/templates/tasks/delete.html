@@ -3,12 +3,17 @@
 {% block content %}
   <main>
     <div class="task-form">
-      <h1>Delete task: {{ model_instance.name id=id }}</h1>
+      <h1>Delete task: {{ task.name }}</h1>
       <h2>Are you sure?</h2>
-      <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-      </form>
+      <div class="delete-page">
+        <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="Delete-button">Delete</button>
+        </form>
+        <a href="{% url "show_my_tasks" %}">
+          <button>No</button>
+        </a>
+      </div>
     </div>
   </main>
 {% endblock content %}
