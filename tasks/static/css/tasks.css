@@ -18,11 +18,12 @@ select {
 html,
 body {
   background-color: #F2F2F2;
+  font-family: Roboto;
 }
 
 /* Set the style of the navigation list */
 header nav ul {
-  background-color: white;
+  background-color: rgb(179, 200, 228);
   border-bottom: 1px solid #CCC;
   box-sizing: border-box;
   list-style: none;
@@ -198,4 +199,50 @@ table {
 
 td {
   text-align: center;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+h1 {
+  color: #003C71;
+  font-family: Roboto;
+  text-align: center;
+}
+
+h2 {
+  color: #003C71;
+  font-family: Roboto;
+}
+
+th {
+  color: #003C71;
+  font-family: Roboto;
+  font-size: large;
+}
+
+
+button {
+  background-color: rgb(190, 207, 229);
+  color: #003C71;
+  border-radius: 50px;
+  border: none;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: box-shadow 0.15s;
+  vertical-align: top;
+  text-align: center;
+}
+
+button:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }

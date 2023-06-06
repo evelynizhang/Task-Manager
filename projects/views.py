@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from projects.models import Project
 from django.contrib.auth.decorators import login_required
 from projects.forms import ProjectForm
+from tasks.models import Task
 
 # Create your views here.
 
@@ -9,8 +10,39 @@ from projects.forms import ProjectForm
 @login_required
 def all_projects(request):
     projects = Project.objects.filter(owner=request.user)
+    for project in projects:
+        tasks = Task.objects.filter(is_completed=False, project=project.id)
+        project.incompleted_tasks = tasks
     context = {"all_projects": projects}
     return render(request, "projects/projects.html", context)
+
+
+def all_tasks_in_a_project(request, id):
+    projects = Project.objects.filter(owner=request.user)
+    for project in projects:
+        tasks = Task.objects.filter(project=id)
+    context = {"all_tasks_in_project": tasks}
+    return render(request, "tasks/all_tasks_in_project.html", context)
+
+
+def all_incompleted_tasks_in_a_project(request, id):
+    projects = Project.objects.filter(owner=request.user)
+    for project in projects:
+        tasks = Task.objects.filter(is_completed=False, project=id)
+    context = {"all_incompleted_tasks_in_a_project": tasks}
+    return render(
+        request, "tasks/all_incompleted_tasks_in_a_project.html", context
+    )
+
+
+def all_completed_tasks_in_a_project(request, id):
+    projects = Project.objects.filter(owner=request.user)
+    for project in projects:
+        tasks = Task.objects.filter(is_completed=True, project=id)
+    context = {"all_completed_tasks_in_a_project": tasks}
+    return render(
+        request, "tasks/all_completed_tasks_in_a_project.html", context
+    )
 
 
 def redirect_home(request):

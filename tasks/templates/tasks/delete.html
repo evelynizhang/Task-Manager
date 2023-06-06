@@ -3,7 +3,7 @@
 {% block content %}
   <main>
     <div class="task-form">
-      <h1>Delete task: {{ my_task_object.name }}</h1>
+      <h1>Delete task: {{ model_instance.name id=id }}</h1>
       <h2>Are you sure?</h2>
       <form method="post">
         {% csrf_token %}

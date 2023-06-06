@@ -5,7 +5,9 @@
     <div class="project-list">
       <h1>My Projects</h1>
       <p>
-        <a href="{% url "create_project" %}">Create a new project</a>
+        <a href="{% url "create_project" %}">
+          <button class="create-project-button">Create a new project</button>
+        </a>
       </p>
       {% if all_projects.count == 0 %}
         <p>You are not assigned to any projects</p>
@@ -16,6 +18,7 @@
               <th>Name</th>
               <th>Total number of tasks</th>
               <th>Incompleted number of tasks</th>
+              <th>Completed number of tasks</th>
             </tr>
           </thead>
           <tbody>
@@ -24,8 +27,15 @@
                 <td>
                   <a href="{% url "show_project" each.id %}">{{ each.name }}</a>
                 </td>
-                <td>{{ each.tasks.all|length }}</td>
-                <td>{{ each.tasks.incompleted_tasks }}</td>
+                <td>
+                  <a href="{% url "show_all_tasks_in_a_project" each.id %}">{{ each.tasks.all|length }}</a>
+                </td>
+                <td>
+                  <a href="{% url "all_incompleted_tasks_in_a_project" each.id %}">{{ each.count_incompleted_tasks }}</a>
+                </td>
+                <td>
+                  <a href="{% url "all_completed_tasks_in_a_project" each.id %}">{{ each.count_completed_tasks }}</a>
+                </td>
               </tr>
             {% endfor %}
           </tbody>

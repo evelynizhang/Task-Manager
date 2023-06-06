@@ -19,11 +19,7 @@ def view_create_task(request):
 
 @login_required
 def view_my_task(request):
-    my_task = (
-        Task.objects.filter(assignee=request.user)
-        .order_by("due_date")
-        .values()
-    )
+    my_task = Task.objects.filter(assignee=request.user).order_by("due_date")
     print(my_task)
     context = {"my_task": my_task}
     return render(request, "tasks/my_task.html", context)

@@ -2,32 +2,26 @@
 
 {% block content %}
   <main>
-    <div class="project-detail">
-      <h1>{{ single_project.name }}</h1>
-      <p>{{ single_project.description }}</p>
-      <p>
-        <a href="{% url "create_task" %}">
-          <button>Create a new task</button>
-        </a>
-      </p>
-      {% if single_project.tasks.count != 0 %}
+    <div class="my-tasks-list">
+      <h1>My Tasks</h1>
+      {% if all_completed_tasks_in_a_project.count == 0 %}
+        <p>You have no tasks</p>
+      {% else %}
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Assignee</th>
+              <th>Task Name</th>
               <th>Start date</th>
               <th>Due date</th>
               <th>Is completed</th>
             </tr>
           </thead>
           <tbody>
-            {% for each in single_project.tasks.all %}
+            {% for each in all_completed_tasks_in_a_project.all %}
               <tr>
                 <td>
                   <a href="{% url "edit_my_task" each.id %}">{{ each.name }}</a>
                 </td>
-                <td>{{ each.assignee }}</td>
                 <td>{{ each.start_date|date:"m/d/y P" }}</td>
                 <td>{{ each.due_date|date:"m/d/y P" }}</td>
                 <td>{{ each.is_completed|yesno }}</td>
@@ -35,8 +29,6 @@
             {% endfor %}
           </tbody>
         </table>
-      {% else %}
-        <p>This project has no tasks</p>
       {% endif %}
     </div>
   </main>
