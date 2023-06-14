@@ -18,13 +18,15 @@ select {
 /* Set the background color of all pages */
 html,
 body {
-  background-image: url('{% static "css/images/back.jpeg" %}');
+  background-image: url("../images/background images.jpeg");
   font-family: Roboto;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Set the style of the navigation list */
 header nav ul {
-  background-color: rgb(179, 200, 228);
+  background-color: rgb(193, 220, 255);
   border-bottom: 1px solid #CCC;
   box-sizing: border-box;
   list-style: none;
@@ -98,10 +100,11 @@ table {
 .signup-form {
   background-color: white;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: auto;
   max-width: 400px;
   padding: 2em;
+
+  margin-left: 250px;
 }
 
 .welcome {
@@ -109,9 +112,20 @@ table {
   margin-left: 350px;
 }
 
+.want {
+  margin-left: 150px;
+}
+
 .welcome-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.signup-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
+  padding-left: 50px;
 }
 
 .left {
@@ -257,7 +271,7 @@ th {
 
 
 button {
-  background-color: rgb(190, 207, 229);
+  background-color: rgb(193, 220, 255);
   color: #003C71;
   border-radius: 50px;
   border: none;
@@ -327,4 +341,20 @@ footer {
   position: absolute;
   bottom: 0;
   font-size: small;
+}
+
+
+.no-task {
+  padding-left: 15px;
+}
+
+.create-task {
+  padding-top: 50px;
+}
+
+
+.signup,
+.login {
+  background-color: white;
+  background-image: none;
 }

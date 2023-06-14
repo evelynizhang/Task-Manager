@@ -5,7 +5,7 @@
     <div class="project-list">
       <h1>My Projects</h1>
       {% if all_projects.count == 0 %}
-        <p>You are not assigned to any projects</p>
+        <p class="no-task">You are not assigned to any projects</p>
         <p>
           <a href="{% url "create_project" %}">
             <button class="create-project-button">Create a new project</button>
@@ -14,7 +14,7 @@
       {% else %}
         <p>
           <a href="{% url "create_project" %}">
-            <button class="create-project-button">Create a new project</button>
+            <button class="create-project-button">Add a new project</button>
           </a>
         </p>
         <table>

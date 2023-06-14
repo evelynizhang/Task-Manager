@@ -25,18 +25,16 @@ def view_every_project(request):
     return render(request, "projects/every_project.html", context)
 
 
+@login_required
 def all_tasks_in_a_project(request, id):
-    projects = Project.objects.filter(owner=request.user)
-    for project in projects:
-        tasks = Task.objects.filter(id=project.id).order_by("due_date")
-    context = {"all_tasks_in_project": tasks}
+    tasks = Task.objects.filter(project=id).order_by("due_date")
+    a_project = Project.objects.get(id=id)
+    context = {"all_tasks_in_project": tasks, "a_project": a_project}
     return render(request, "tasks/all_tasks_in_project.html", context)
 
 
 def all_incompleted_tasks_in_a_project(request, id):
-    projects = Project.objects.filter(owner=request.user)
-    for project in projects:
-        tasks = Task.objects.filter(is_completed=False, project=id)
+    tasks = Task.objects.filter(is_completed=False, project=id)
     context = {"all_incompleted_tasks_in_a_project": tasks}
     return render(
         request, "tasks/all_incompleted_tasks_in_a_project.html", context
@@ -44,9 +42,7 @@ def all_incompleted_tasks_in_a_project(request, id):
 
 
 def all_completed_tasks_in_a_project(request, id):
-    projects = Project.objects.filter(owner=request.user)
-    for project in projects:
-        tasks = Task.objects.filter(is_completed=True, project=id)
+    tasks = Task.objects.filter(is_completed=True, project=id)
     context = {"all_completed_tasks_in_a_project": tasks}
     return render(
         request, "tasks/all_completed_tasks_in_a_project.html", context

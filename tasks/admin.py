@@ -11,4 +11,5 @@ class TaskAdmin(admin.ModelAdmin):
         "is_completed",
         "project",
         "assignee",
+        "id",
     )

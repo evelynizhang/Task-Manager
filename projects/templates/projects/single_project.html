@@ -3,11 +3,12 @@
 {% block content %}
   <main>
     <div class="project-detail">
-      <h1>{{ single_project.name }}</h1>
+      <h1>Project: {{ single_project.name }}</h1>
+      <h2>Description:</h2>
       <p>{{ single_project.description }}</p>
-      <p>
+      <p class="create-task">
         <a href="{% url "create_task" %}">
-          <button>Create a new task</button>
+          <button>Add a new task</button>
         </a>
       </p>
       {% if single_project.tasks.count != 0 %}

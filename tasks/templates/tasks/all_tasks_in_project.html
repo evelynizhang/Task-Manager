@@ -3,7 +3,7 @@
 {% block content %}
   <main>
     <div class="my-tasks-list">
-      <h1>My Tasks</h1>
+      <h1>Tasks for {{ a_project.name }}</h1>
       {% if all_tasks_in_project.count == 0 %}
         <p>You have no tasks</p>
         <p>
