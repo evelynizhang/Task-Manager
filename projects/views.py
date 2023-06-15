@@ -64,7 +64,8 @@ def redirect_home(request):
 @login_required
 def view_single_project(request, id):
     project = get_object_or_404(Project, id=id)
-    context = {"single_project": project}
+    task = Task.objects.filter(project=id).order_by("due_date")
+    context = {"single_project": project, "all_t_in_P": task}
     return render(request, "projects/single_project.html", context)
 
 

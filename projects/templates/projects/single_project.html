@@ -22,7 +22,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for each in single_project.tasks.all %}
+            {% for each in all_t_in_P.all %}
               <tr>
                 <td>
                   <a href="{% url "view_each_task" each.id %}">{{ each.name }}</a>
