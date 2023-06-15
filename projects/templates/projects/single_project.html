@@ -17,7 +17,6 @@
             <tr>
               <th>Name</th>
               <th>Assignee</th>
-              <th>Start date</th>
               <th>Due date</th>
               <th>Is completed</th>
             </tr>
@@ -29,7 +28,6 @@
                   <a href="{% url "view_each_task" each.id %}">{{ each.name }}</a>
                 </td>
                 <td>{{ each.assignee }}</td>
-                <td>{{ each.start_date|date:"m/d/y P" }}</td>
                 <td>{{ each.due_date|date:"m/d/y P" }}</td>
                 <td>{{ each.is_completed|yesno }}</td>
               </tr>

@@ -196,7 +196,8 @@ img {
 /* Add a nice box around the lists and details */
 .my-tasks-list,
 .project-list,
-.project-detail {
+.project-detail,
+.search-list {
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -370,8 +371,8 @@ a:visited {
   background-color: #7db1df;
 }
 
-h4 {
-  text-align: center;
-  align-content: center;
+h3 {
   padding-top: 20px;
+  align-content: center;
+  text-align: center;
 }
