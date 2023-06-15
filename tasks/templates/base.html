@@ -29,6 +29,16 @@
             <li>
               <a href="{% url "logout" %}">Logout</a>
             </li>
+            <li>
+              <form method="post" action="{% url "search_project" %}">
+                {% csrf_token %}
+                <input type="search"
+                       placeholder="Search Projects"
+                       aria-label="Search"
+                       name="searched">
+                <button type="submit" class="search">Search</button>
+              </form>
+            </li>
           {% elif user.is_authenticated %}
             <li>
               <a href="{% url "show_my_tasks" %}">My tasks</a>

@@ -7,6 +7,7 @@ from projects.views import (
     all_incompleted_tasks_in_a_project,
     all_completed_tasks_in_a_project,
     view_every_project,
+    search_project,
 )
 
 urlpatterns = [
@@ -32,5 +33,10 @@ urlpatterns = [
         "all",
         view_every_project,
         name="view_every_project",
+    ),
+    path(
+        "search_project",
+        search_project,
+        name="search_project",
     ),
 ]

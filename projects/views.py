@@ -35,7 +35,11 @@ def all_tasks_in_a_project(request, id):
 
 def all_incompleted_tasks_in_a_project(request, id):
     tasks = Task.objects.filter(is_completed=False, project=id)
-    context = {"all_incompleted_tasks_in_a_project": tasks}
+    a_project = Project.objects.get(id=id)
+    context = {
+        "all_incompleted_tasks_in_a_project": tasks,
+        "ain_project": a_project,
+    }
     return render(
         request, "tasks/all_incompleted_tasks_in_a_project.html", context
     )
@@ -43,7 +47,11 @@ def all_incompleted_tasks_in_a_project(request, id):
 
 def all_completed_tasks_in_a_project(request, id):
     tasks = Task.objects.filter(is_completed=True, project=id)
-    context = {"all_completed_tasks_in_a_project": tasks}
+    a_project = Project.objects.get(id=id)
+    context = {
+        "all_completed_tasks_in_a_project": tasks,
+        "ac_project": a_project,
+    }
     return render(
         request, "tasks/all_completed_tasks_in_a_project.html", context
     )
@@ -73,3 +81,16 @@ def create_new_project(request):
         form = ProjectForm()
     context = {"form": form}
     return render(request, "projects/create_project.html", context)
+
+
+def search_project(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        project = Project.objects.filter(name__contains=searched)
+        return render(
+            request,
+            "projects/search.project.html",
+            {"searched": searched, "project": project},
+        )
+    else:
+        return render(request, "projects/search.project.html", {})

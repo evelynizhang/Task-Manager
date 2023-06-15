@@ -358,3 +358,20 @@ footer {
   background-color: white;
   background-image: none;
 }
+
+a:visited {
+  color: none;
+}
+
+.search {
+  padding-top: 0px;
+  padding-bottom: 0;
+  text-align: center;
+  background-color: #7db1df;
+}
+
+h4 {
+  text-align: center;
+  align-content: center;
+  padding-top: 20px;
+}

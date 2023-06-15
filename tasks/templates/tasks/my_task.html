@@ -3,7 +3,7 @@
 {% block content %}
   <main>
     <div class="my-tasks-list">
-      <h1>My Tasks</h1>
+      <h1>All My Tasks</h1>
       {% if my_task.count == 0 %}
         <p class="no-task">You have no tasks</p>
         <p>
@@ -22,8 +22,8 @@
             <tr>
               <th>Task Name</th>
               <th>Project Name</th>
-              <th>Start date</th>
               <th>Due date</th>
+              <th>Start date</th>
               <th>Is completed</th>
             </tr>
           </thead>
@@ -36,8 +36,8 @@
                 <td>
                   <a href="{% url "show_all_tasks_in_a_project" each.project.id %}">{{ each.project.name }}</a>
                 </td>
-                <td>{{ each.start_date|date:"m/d/y P" }}</td>
                 <td>{{ each.due_date|date:"m/d/y P" }}</td>
+                <td>{{ each.start_date|date:"m/d/y P" }}</td>
                 <td>{{ each.is_completed|yesno }}</td>
               </tr>
             {% endfor %}
