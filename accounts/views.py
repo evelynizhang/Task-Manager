@@ -40,8 +40,8 @@ def view_signupform(request):
             password_confirmation = request.POST["password_confirmation"]
             if password == password_confirmation:
                 user = User.objects.create_user(
-                    username,
-                    password,
+                    username=username,
+                    password=password,
                 )
                 login(request, user)
                 return redirect("list_projects")
