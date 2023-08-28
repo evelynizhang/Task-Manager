@@ -5,6 +5,12 @@
 
 To keep track your projects and corresponding tasks
 
+## Build with
+ <img src="./icons/Python.svg" width="48">
+ <img src="./icons/Django.svg" width="48">
+ <img src="./icons/HTML.svg" width="48">      |
+ <img src="./icons/CSS.svg" width="48">
+
 ## Installation
 1. Clone the repo
 ```sh
