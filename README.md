@@ -7,10 +7,10 @@ To keep track your projects and corresponding tasks
 
 ## Build with
 <tr>
-  <td>Python<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/python.svg" width="100" title="Python"><br>550 bytes</td>
-  <td>Django Project<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/djangoproject.svg" width="100" title="Django Project"><br>434 bytes</td>
-  <td>HTML5<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/html5.svg" width="100" title="HTML5"><br>399 bytes</td>
-  <td>CSS3<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/css3.svg" width="100" title="CSS3"><br>384 bytes</td>
+  <td>Python<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/python.svg" width="100" title="Python"><br></td>
+  <td>Django Project<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/djangoproject.svg" width="100" title="Django Project"><br></td>
+  <td>HTML5<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/html5.svg" width="100" title="HTML5"><br></td>
+  <td>CSS3<br><img src="https://edent.github.io/SuperTinyIcons/images/svg/css3.svg" width="100" title="CSS3"><br></td>
  </tr>
 
 ## Installation
